@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --vendora-green:  #00C882;
+  --vendora-dark:   #0B0B0F;
+  --vendora-card:   #111116;
+  --vendora-border: #1E1E26;
+  --vendora-muted:  #6B6B7A;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  -webkit-tap-highlight-color: transparent;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Syne', sans-serif;
+  background: var(--vendora-dark);
+  color: #F0F0F5;
+  min-height: 100dvh;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #1a1a22 25%, #22222c 50%, #1a1a22 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 8px;
+}
+
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.5s ease forwards;
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #2a2a35; border-radius: 4px; }
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 200, 130, 0.3);
+}
+
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 16px);
+}
+
+.otp-input {
+  width: 46px;
+  height: 58px;
+  text-align: center;
+  font-family: 'DM Mono', monospace;
+  font-size: 22px;
+  font-weight: 700;
+  background: #111116;
+  border: 1.5px solid #1E1E26;
+  border-radius: 12px;
+  color: #F0F0F5;
+  transition: border-color 0.2s;
+}
+
+.otp-input:focus {
+  border-color: var(--vendora-green);
+}
+
+.otp-input.filled {
+  border-color: var(--vendora-green);
+  color: var(--vendora-green);
+}
